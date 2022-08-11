@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 95febde5d82347a42b379d2663fd91ce, type: 3}
-  m_Color: {r: 0.13980061, g: 0.5114724, b: 0.7264151, a: 1}
+  m_Color: {r: 0.8301887, g: 0.41254303, b: 0.19893196, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6859463821771852968}
   - component: {fileID: 6859463821771852970}
   m_Layer: 0
-  m_Name: Agent2D
+  m_Name: Agent2D 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,15 +215,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1270212778095088592, guid: 623589c4b7f001440a33997d13fb8432, type: 3}
       propertyPath: m_Color.b
-      value: 0.7264151
+      value: 0.19893196
       objectReference: {fileID: 0}
     - target: {fileID: 1270212778095088592, guid: 623589c4b7f001440a33997d13fb8432, type: 3}
       propertyPath: m_Color.g
-      value: 0.5114724
+      value: 0.41254303
       objectReference: {fileID: 0}
     - target: {fileID: 1270212778095088592, guid: 623589c4b7f001440a33997d13fb8432, type: 3}
       propertyPath: m_Color.r
-      value: 0.13980061
+      value: 0.8301887
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 623589c4b7f001440a33997d13fb8432, type: 3}
