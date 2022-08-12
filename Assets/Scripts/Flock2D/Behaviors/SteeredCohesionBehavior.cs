@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Flock2D/Steered cohesion behavior")]
+[CreateAssetMenu(menuName = "Flock2D/Behaviors/Steered cohesion")]
 public class SteeredCohesionBehavior : FlockBehavior2D
 {
     [SerializeField] float agentSmoothTime = 0.5f;

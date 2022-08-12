@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Flock2D/Composite behavior")]
+[CreateAssetMenu(menuName = "Flock2D/Behaviors/Composite")]
 public class CompositeBehavior2D : FlockBehavior2D
 {
     public List<FlockBehavior2D> behaviors;
@@ -19,7 +19,11 @@ public class CompositeBehavior2D : FlockBehavior2D
 
         for (int i = 0; i < weights.Count; i += 1)
         {
-            Vector2 move = behaviors[i].ComputeMove(agent, neighbors, flock) * weights[i];
+            List<Transform> actualNeighbors = behaviors[i].filter != null
+                ? behaviors[i].filter.FilterNeighbors(agent, neighbors)
+                : neighbors;
+
+            Vector2 move = behaviors[i].ComputeMove(agent, actualNeighbors, flock) * weights[i];
 
             if (move != Vector2.zero && move.sqrMagnitude > weights[i] * weights[i])
             {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Flock2D/Cohesion behavior")]
+[CreateAssetMenu(menuName = "Flock2D/Behaviors/Cohesion")]
 public class CohesionBehavior2D : FlockBehavior2D
 {
     public override Vector2 ComputeMove(FlockAgent2D agent, List<Transform> neighbors, Flock2D _)

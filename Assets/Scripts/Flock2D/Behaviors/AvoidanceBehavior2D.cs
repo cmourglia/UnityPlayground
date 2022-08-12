@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Flock2D/Avoidance behavior")]
+[CreateAssetMenu(menuName = "Flock2D/Behaviors/Avoidance")]
 public class AvoidanceBehavior2D : FlockBehavior2D
 {
     public override Vector2 ComputeMove(FlockAgent2D agent, List<Transform> neighbors, Flock2D flock)

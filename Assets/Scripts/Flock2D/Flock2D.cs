@@ -35,6 +35,8 @@ public class Flock2D : MonoBehaviour
             var rotation = Quaternion.Euler(Vector3.forward * angle);
 
             FlockAgent2D flockAgent = Instantiate(agentPrefab, agentSpawnLocation, rotation, transform);
+            flockAgent.Initialize(this);
+
             agents.Add(flockAgent);
         }
     }
@@ -44,8 +46,6 @@ public class Flock2D : MonoBehaviour
         foreach (FlockAgent2D agent in agents)
         {
             List<Transform> neighbors = GetNeighbors(agent);
-
-            agent.GetComponentInChildren<SpriteRenderer>().color = Color.Lerp(Color.white, Color.red, neighbors.Count / 6f);
 
             Vector2 speed = behavior.ComputeMove(agent, neighbors, this);
             speed *= driveFactor;

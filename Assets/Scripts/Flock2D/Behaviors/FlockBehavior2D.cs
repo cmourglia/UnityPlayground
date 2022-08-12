@@ -3,5 +3,7 @@ using UnityEngine;
 
 public abstract class FlockBehavior2D : ScriptableObject
 {
+    public NeighborFilter filter;
+
     public abstract Vector2 ComputeMove(FlockAgent2D agent, List<Transform> neighbors, Flock2D flock);
 }

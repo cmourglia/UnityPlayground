@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Flock2D/Stay in radius behavior")]
+[CreateAssetMenu(menuName = "Flock2D/Behaviors/Stay in radius")]
 public class StayInRadiusBehavior2D : FlockBehavior2D
 {
     [SerializeField] Vector2 center;

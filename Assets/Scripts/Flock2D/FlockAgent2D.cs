@@ -4,6 +4,12 @@ using UnityEngine;
 public class FlockAgent2D : MonoBehaviour
 {
     public Collider2D agentCollider { get; set; }
+    public Flock2D flockManager { get; private set; }
+
+    public void Initialize(Flock2D flockManager)
+    {
+        this.flockManager = flockManager;
+    }
 
     private void Start()
     {

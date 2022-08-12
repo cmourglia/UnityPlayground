@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Flock2D/Align behavior")]
+[CreateAssetMenu(menuName = "Flock2D/Behaviors/Align")]
 public class AlignBehavior2D : FlockBehavior2D
 {
     public override Vector2 ComputeMove(FlockAgent2D agent, List<Transform> neighbors, Flock2D _)
