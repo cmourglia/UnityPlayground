@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Flock2D/Behaviors/Stay in radius")]
-public class StayInRadiusBehavior2D : FlockBehavior2D
+[CreateAssetMenu(menuName = "Boids/Behaviors/Stay in radius")]
+public class StayInRadiusBehavior : BoidBehavior
 {
     [SerializeField] Vector2 center;
     [SerializeField] float radius = 15f;
 
-    public override Vector2 ComputeMove(FlockAgent2D agent, List<Transform> neighbors, Flock2D flock)
+    public override Vector2 ComputeBoidMove(Boid agent, List<Transform> neighbors, BoidSystem boidSystem, Vector2 targetSpeed)
     {
         Vector2 centerOffset = center - (Vector2)agent.transform.position;
 

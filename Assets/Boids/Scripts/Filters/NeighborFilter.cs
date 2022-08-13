@@ -3,5 +3,5 @@ using UnityEngine;
 
 public abstract class NeighborFilter : ScriptableObject
 {
-    public abstract List<Transform> FilterNeighbors(FlockAgent2D agent, List<Transform> neighbors);
+    public abstract List<Transform> FilterNeighbors(Boid agent, List<Transform> neighbors);
 }

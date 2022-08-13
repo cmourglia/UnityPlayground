@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6859463821771852968}
   - component: {fileID: 6859463821771852970}
   m_Layer: 0
-  m_Name: Agent2D 4
+  m_Name: Boid 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

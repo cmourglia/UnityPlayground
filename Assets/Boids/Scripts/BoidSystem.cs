@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Flock2D : MonoBehaviour
+public class BoidSystem : MonoBehaviour
 {
-    [SerializeField] FlockAgent2D agentPrefab;
-    [SerializeField] FlockBehavior2D behavior;
+    [SerializeField] Boid agentPrefab;
+    [SerializeField] BoidBehavior behavior;
 
     [Range(1, 500), SerializeField] int agentCount;
 
@@ -16,7 +16,7 @@ public class Flock2D : MonoBehaviour
 
     const float AGENT_DENSITY = 0.08f;
 
-    List<FlockAgent2D> agents = new();
+    List<Boid> agents = new();
 
     public float sqrMaxSpeed { get; private set; }
     public float sqrVisionRadius { get; private set; }
@@ -30,11 +30,11 @@ public class Flock2D : MonoBehaviour
 
         for (int i = 0; i < agentCount; i += 1)
         {
-            Vector2 agentSpawnLocation = Random.insideUnitCircle * (float)agentCount * AGENT_DENSITY;
+            Vector2 agentSpawnLocation = Random.insideUnitCircle;
             float angle = Random.Range(0f, 360f);
             var rotation = Quaternion.Euler(Vector3.forward * angle);
 
-            FlockAgent2D flockAgent = Instantiate(agentPrefab, agentSpawnLocation, rotation, transform);
+            Boid flockAgent = Instantiate(agentPrefab, agentSpawnLocation, rotation, transform);
             flockAgent.Initialize(this);
 
             agents.Add(flockAgent);
@@ -43,11 +43,11 @@ public class Flock2D : MonoBehaviour
 
     private void Update()
     {
-        foreach (FlockAgent2D agent in agents)
+        foreach (Boid agent in agents)
         {
             List<Transform> neighbors = GetNeighbors(agent);
 
-            Vector2 speed = behavior.ComputeMove(agent, neighbors, this);
+            Vector2 speed = behavior.ComputeBoidMove(agent, neighbors, this, Vector2.zero);
             speed *= driveFactor;
 
             if (speed.sqrMagnitude > sqrMaxSpeed)
@@ -59,7 +59,7 @@ public class Flock2D : MonoBehaviour
         }
     }
 
-    List<Transform> GetNeighbors(FlockAgent2D agent)
+    List<Transform> GetNeighbors(Boid agent)
     {
         List<Transform> neighbors = new();
 

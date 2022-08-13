@@ -9,8 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f010e3c4d0480bd469c1d535c8f1d339, type: 3}
-  m_Name: StayInRadiusBehavior2D
+  m_Script: {fileID: 11500000, guid: fa46b3c96f1110d4e8fb4bd6ea429c61, type: 3}
+  m_Name: Avoid Obstacles Behavior
   m_EditorClassIdentifier: 
-  center: {x: 0, y: 0}
-  radius: 25
+  filter: {fileID: 0}
+  rayCount: 15
+  FOV: 270
+  rayLength: 5
+  mask:
+    serializedVersion: 2
+    m_Bits: 256
+  smoothTime: 1

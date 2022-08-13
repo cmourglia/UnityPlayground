@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Flock2D/Behaviors/Align")]
-public class AlignBehavior2D : FlockBehavior2D
+[CreateAssetMenu(menuName = "Boids/Behaviors/Align")]
+public class AlignBehavior : BoidBehavior
 {
-    public override Vector2 ComputeMove(FlockAgent2D agent, List<Transform> neighbors, Flock2D _)
+    public override Vector2 ComputeBoidMove(Boid boid, List<Transform> neighbors, BoidSystem boidSystem, Vector2 targetSpeed)
     {
         if (neighbors.Count == 0)
         {
-            return agent.transform.up;
+            return boid.transform.up;
         }
 
         Vector2 move = Vector2.zero;

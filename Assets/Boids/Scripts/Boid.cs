@@ -1,12 +1,12 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-public class FlockAgent2D : MonoBehaviour
+public class Boid : MonoBehaviour
 {
     public Collider2D agentCollider { get; set; }
-    public Flock2D flockManager { get; private set; }
+    public BoidSystem flockManager { get; private set; }
 
-    public void Initialize(Flock2D flockManager)
+    public void Initialize(BoidSystem flockManager)
     {
         this.flockManager = flockManager;
     }

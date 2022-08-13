@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Flock2D/Behaviors/Steered cohesion")]
-public class SteeredCohesionBehavior : FlockBehavior2D
+[CreateAssetMenu(menuName = "Boids/Behaviors/Steered cohesion")]
+public class SteeredCohesionBehavior : BoidBehavior
 {
     [SerializeField] float agentSmoothTime = 0.5f;
 
     Vector2 currentVelocity;
 
-    public override Vector2 ComputeMove(FlockAgent2D agent, List<Transform> neighbors, Flock2D _)
+    public override Vector2 ComputeBoidMove(Boid agent, List<Transform> neighbors, BoidSystem boidSystem, Vector2 targetSpeed)
     {
         Vector2 move = Vector2.zero;
 

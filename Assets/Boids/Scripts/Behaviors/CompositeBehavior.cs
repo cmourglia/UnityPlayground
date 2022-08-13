@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Flock2D/Behaviors/Composite")]
-public class CompositeBehavior2D : FlockBehavior2D
+[CreateAssetMenu(menuName = "Boids/Behaviors/Composite")]
+public class CompositeBehavior : BoidBehavior
 {
-    public List<FlockBehavior2D> behaviors;
-    public List<float> weights;
+    public List<BoidBehavior> behaviors = new();
+    public List<float> weights = new();
 
-    public override Vector2 ComputeMove(FlockAgent2D agent, List<Transform> neighbors, Flock2D flock)
+    public override Vector2 ComputeBoidMove(Boid agent, List<Transform> neighbors, BoidSystem boidSystem, Vector2 targetSpeed)
     {
         if (weights.Count != behaviors.Count)
         {
@@ -15,7 +15,7 @@ public class CompositeBehavior2D : FlockBehavior2D
             return Vector2.zero;
         }
 
-        Vector2 sum = Vector2.zero;
+        Vector2 boidSpeed = Vector2.zero;
 
         for (int i = 0; i < weights.Count; i += 1)
         {
@@ -23,16 +23,16 @@ public class CompositeBehavior2D : FlockBehavior2D
                 ? behaviors[i].filter.FilterNeighbors(agent, neighbors)
                 : neighbors;
 
-            Vector2 move = behaviors[i].ComputeMove(agent, actualNeighbors, flock) * weights[i];
+            Vector2 move = behaviors[i].ComputeBoidMove(agent, actualNeighbors, boidSystem, boidSpeed) * weights[i];
 
             if (move != Vector2.zero && move.sqrMagnitude > weights[i] * weights[i])
             {
                 move = move.normalized * weights[i];
             }
 
-            sum += move;
+            boidSpeed += move;
         }
 
-        return sum;
+        return boidSpeed;
     }
 }

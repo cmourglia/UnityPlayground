@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Flock2D/Behaviors/Cohesion")]
-public class CohesionBehavior2D : FlockBehavior2D
+[CreateAssetMenu(menuName = "Boids/Behaviors/Cohesion")]
+public class CohesionBehavior : BoidBehavior
 {
-    public override Vector2 ComputeMove(FlockAgent2D agent, List<Transform> neighbors, Flock2D _)
+    public override Vector2 ComputeBoidMove(Boid agent, List<Transform> neighbors, BoidSystem boidSystem, Vector2 targetSpeed)
     {
         Vector2 move = Vector2.zero;
 
